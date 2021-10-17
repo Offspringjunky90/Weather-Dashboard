@@ -1,0 +1,72 @@
+.header {
+    height: 50px;
+    width: auto;
+    background-color: blue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.side {
+    float: left;
+    height: 1000px;
+    width: 200px;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+#input {
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+#button {
+    background-color: #5ea9e7;
+    border-radius: 5px;
+    height: 20px;
+    width: 177px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#button:hover {
+    cursor: pointer;
+}
+
+hr {
+    height: 1px;
+}
+
+.container {
+    height: 200px;
+    width: 700px;
+    border: 1px solid;
+    margin: 10px;
+    margin-left: 220px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+.forcast {
+    margin-left: 30px;
+    height: 400px;
+}
+
+.card {
+    height: 200px;
+    width: 150px;
+    color: white;
+    display: inline-block;
+}
+
+.card-body {
+    background-color: #3f1e7c;
+}

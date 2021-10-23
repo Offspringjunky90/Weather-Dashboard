@@ -64,11 +64,63 @@ buttonEl.addEventListener("click", function() {
             })
             .then(function (data) {
                 console.log(data)
-                for (var i = 0; i < data.length; i++) {
-                    let dateEl = document.querySelector("#date-" + i);
-                    dateEl.textContent = response.list[7].dt_txt;
-                    cardTextTemp.textContent = "Temperature: " + response.list[7].main.temp;
-                    cardTextHumidity.textContent = "Humidity: " + response.list[7].main.humidity + "%";
-            }})
-        }
-});
+                    let dateEl = document.getElementById("date-1")
+                    dateEl.textContent = data.list[7].dt_txt;
+                    cardTextTemp.textContent = "Temperature: " + data.list[7].main.temp;
+                    cardTextHumidity.textContent = "Humidity: " + data.list[7].main.humidity + "%";
+                })
+        fetch(urlFiveDay)
+        .then(function (response) {
+            return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+                    let dateElTwo = document.getElementById("date-2")
+                    dateElTwo.textContent = data.list[12].dt_txt;
+                    let cardTextHumidity2 = document.querySelector(".cardTextHumidity2");
+                    let cardTextTemp2 = document.querySelector(".cardTextTemp2");
+                    cardTextTemp2.textContent = "Temperature: " + data.list[12].main.temp;
+                    cardTextHumidity2.textContent = "Humidity: " + data.list[12].main.humidity + "%";
+            })
+            fetch(urlFiveDay)
+            .then(function (response) {
+                return response.json();
+                })
+                .then(function (data) {
+                    console.log(data)
+                        let dateElThree = document.getElementById("date-3")
+                        dateElThree.textContent = data.list[20].dt_txt;
+                        let cardTextHumidity3 = document.querySelector(".cardTextHumidity3");
+                        let cardTextTemp3 = document.querySelector(".cardTextTemp3");
+                        cardTextTemp3.textContent = "Temperature: " + data.list[20].main.temp;
+                        cardTextHumidity3.textContent = "Humidity: " + data.list[20].main.humidity + "%";
+                })
+                fetch(urlFiveDay)
+                .then(function (response) {
+                    return response.json();
+                    })
+                    .then(function (data) {
+                        console.log(data)
+                            let dateElFour = document.getElementById("date-4")
+                            dateElFour.textContent = data.list[28].dt_txt;
+                            let cardTextHumidity4 = document.querySelector(".cardTextHumidity4");
+                            let cardTextTemp4 = document.querySelector(".cardTextTemp4");
+                            cardTextTemp4.textContent = "Temperature: " + data.list[28].main.temp;
+                            cardTextHumidity4.textContent = "Humidity: " + data.list[28].main.humidity + "%";
+                    })
+                    fetch(urlFiveDay)
+                    .then(function (response) {
+                        return response.json();
+                        })
+                        .then(function (data) {
+                            console.log(data)
+                                let dateElFive = document.getElementById("date-5")
+                                dateElFive.textContent = data.list[36].dt_txt;
+                                let cardTextHumidity5 = document.querySelector(".cardTextHumidity5");
+                                let cardTextTemp5 = document.querySelector(".cardTextTemp5");
+                                cardTextTemp5.textContent = "Temperature: " + data.list[36].main.temp;
+                                cardTextHumidity5.textContent = "Humidity: " + data.list[36].main.humidity + "%";
+                        })
+}})
+
+

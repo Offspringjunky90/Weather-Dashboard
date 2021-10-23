@@ -17,63 +17,57 @@
             <input type="text" id="input" placeholder="San Diego"/>
             <button id="button">Search</button>
             <hr>
+            <ul class="previousSearch">
+            </ul>
         </div>
         <div class="container">
-            <h3>Search for a City</h3>
-            <p id="temp">Temp:</p>
-            <p id="wind">Wind:</p>
-            <p id="humidity">Humidity:</p>
-            <p id="uvindex">UV Index:</p>
+            <h3 id="searchCity">Search for a City</h3>
+            <img id="currentWeatherPic"/>
+            <p id="temp"></p>
+            <p id="wind"></p>
+            <p id="humidity"></p>
+            <p id="uvindex"></p>
         </div>
         <div class="forcast">
             <h4><strong>5-Day Forecast:</strong></h4>
             <div class="card">
                 <div class="card-body">
-                  <h5 class="cardTitleDate"></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"></h6>
-                  <p class="cardTextTemp">Temp:</p>
-                  <p class="cardTextWind">Wind:</p>
-                  <p class="cardTextHumidity">Humidity</p>
+                  <p id="date-1"></p>
+                  <p class="cardTextTemp"></p>
+                  <p class="cardTextHumidity"></p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                  <h5 class="cardTitleDate"></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"></h6>
-                  <p class="cardTextTemp">Temp:</p>
-                  <p class="cardTextWind">Wind:</p>
-                  <p class="cardTextHumidity">Humidity</p>
+                    <p id="date-2"></p>
+                  <p class="cardTextTemp2"></p>
+                  <p class="cardTextHumidity2"></p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                  <h5 class="cardTitleDate"></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"></h6>
-                  <p class="cardTextTemp">Temp:</p>
-                  <p class="cardTextWind">Wind:</p>
-                  <p class="cardTextHumidity">Humidity</p>
+                  <p id="date-3"></p>
+                  <p class="cardTextTemp2"></p>
+                  <p class="cardTextHumidity2"></p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                  <h5 class="cardTitleDate"></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"></h6>
-                  <p class="cardTextTemp">Temp:</p>
-                  <p class="cardTextWind">Wind:</p>
-                  <p class="cardTextHumidity">Humidity</p>
+                  <p id="date-4"></p>
+                  <p class="cardTextTemp2"></p>
+                  <p class="cardTextHumidity2"></p>
                 </div>
             </div>
             <div class="card">
                 <div class="card-body">
-                  <h5 class="cardTitleDate"></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"></h6>
-                  <p class="cardTextTemp">Temp:</p>
-                  <p class="cardTextWind">Wind:</p>
-                  <p class="cardTextHumidity">Humidity</p>
+                  <p id="date-5"></p>
+                  <p class="cardTextTemp2"></p>
+                  <p class="cardTextHumidity2"></p>
                 </div>
             </div>
         </div>
-        
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="./script.js"></script>
     </body>
 </html>

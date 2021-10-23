@@ -28,7 +28,7 @@ h2 {
 #button {
     background-color: #5ea9e7;
     border-radius: 5px;
-    height: 20px;
+    height: 30px;
     width: 177px;
     color: white;
     text-align: center;
@@ -43,30 +43,42 @@ hr {
     height: 1px;
 }
 
+.previousSearch li {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.previousSearch li:hover {
+    cursor: pointer;
+}
+
 .container {
-    height: 200px;
+    height: 250px;
     width: 700px;
     border: 1px solid;
     margin: 10px;
-    margin-left: 220px;
+    margin-left: 250px;
 }
 
 h3 {
     font-size: 26px;
 }
 
+h4 {
+    text-align: center;
+}
+
 .forcast {
-    margin-left: 30px;
     height: 400px;
 }
 
 .card {
     height: 200px;
     width: 150px;
+    margin-left: 50px;
     color: white;
     display: inline-block;
-}
-
-.card-body {
     background-color: #3f1e7c;
 }

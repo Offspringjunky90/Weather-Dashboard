@@ -18,17 +18,17 @@ let cardTextHumidity = document.querySelector(".cardTextHumidity");
 
 for (var i = 0; i < localStorage.length; i++) {
 
-    var city = localStorage.getItem(i);
-    var cityName = $(".previousSearch").addClass("list-group-item");
-    var cityName = $(".previousSearch").addClass("a");
+    let city = localStorage.getItem(i);
+    let cityName = $(".previousSearch").addClass("list-group-item");
+    // let cityName = $(".previousSearch").addClass("a");
     cityName.append("<li>" + city + "</li>");
 }
 
 buttonEl.addEventListener("click", function() {
 
-    var searchInput = $("#input").val();
-    var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + APIKey + "&units=imperial";
-    var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + APIKey + "&units=imperial";
+    let searchInput = $("#input").val();
+    const urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + APIKey + "&units=imperial";
+    const urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchInput + "&Appid=" + APIKey + "&units=imperial";
 
 
     if (searchInput == "") {
@@ -38,17 +38,17 @@ buttonEl.addEventListener("click", function() {
             url: urlCurrent,
             method: "GET"
         }).then(function (response) {
-            var cityName = $(".previousSearch").addClass("list-group-item");
+            let cityName = $(".previousSearch").addClass("list-group-item");
             cityName.append("<li>" + response.name + "</li>");
-            var local = localStorage.setItem(keyCount, response.name);
+            let local = localStorage.setItem(keyCount, response.name);
             keyCount = keyCount++;
-            var timeUTC = new Date(response.dt * 1000);
+            let timeUTC = new Date(response.dt * 1000);
             let h3el = document.querySelector("h3");
             h3el.innerText = response.name + " " + timeUTC.toLocaleDateString("en-US");
             tempEl.innerText = "Temperature: " + response.main.temp;
             humidityEl.innerText = "Humidity: " + response.main.humidity;
             windEl.innerText = "Wind Speed: " + response.wind.speed;
-            var urlUV = `https://api.openweathermap.org/data/2.5/uvi?appid=07904651b5df30da10dc311ab4c2d3ff&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+            const urlUV = `https://api.openweathermap.org/data/2.5/uvi?appid=07904651b5df30da10dc311ab4c2d3ff&lat=${response.coord.lat}&lon=${response.coord.lon}`;
 
             $.ajax({
                 url: urlUV,
@@ -58,30 +58,17 @@ buttonEl.addEventListener("click", function() {
             });
 
         });
-        $.ajax({
-            url: urlFiveDay,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response)
-            for (var i =1; i < 6; i++){
-                let dateEl = document.querySelector("#date-" + i);
-                let timeFiveUTC = new Date(response.dt * 1000);
-                dateEl.textContent = timeFiveUTC.toLocaleDateString("en-US");
-                cardTextTemp.innerHTML = "Temperature: " + response.main.temp;
-                cardTextHumidity.innerHTML = "Humidity: " + response.main.humidity + "%";
-        }}
-        )
-    }
-})
-            
-        
-//         var display5Day = function(weather){
-//             for (var i = 1; i < 6; i++) {
-//                 let dateEl = document.querySelector("#date-" + i);
-//                 dateEl.textContent = moment().add(i, 'days').format('M/D/YYYY');
-//                 cardTextTemp.innerHTML = "Temperature: " + i, forecast.daily[i].temp.day;
-//                 cardTextHumidity.innerHTML = "Humidity: " + i, forcast.daily[i].humidity + "%";
-//             }
-//         }
-//     }
-// })
+        fetch(urlFiveDay)
+        .then(function (response) {
+            return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+                for (var i = 0; i < data.length; i++) {
+                    let dateEl = document.querySelector("#date-" + i);
+                    dateEl.textContent = response.list[7].dt_txt;
+                    cardTextTemp.textContent = "Temperature: " + response.list[7].main.temp;
+                    cardTextHumidity.textContent = "Humidity: " + response.list[7].main.humidity + "%";
+            }})
+        }
+});

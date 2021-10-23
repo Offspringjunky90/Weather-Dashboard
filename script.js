@@ -58,13 +58,30 @@ buttonEl.addEventListener("click", function() {
             });
 
         });
-        var fiveDayForecast = function(forecast) { 
-            for (var i = 1; i < 6; i++) {
+        $.ajax({
+            url: urlFiveDay,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response)
+            for (var i =1; i < 6; i++){
                 let dateEl = document.querySelector("#date-" + i);
-                dateEl.textContent = moment().add(i, 'days').format('M/D/YYYY');
-                cardTextTemp.innerHTML = "Temperature: " + i, forecast.daily[i].temp.day;
-                cardTextHumidity.innerHTML = "Humidity: " + i, forcast.daily[i].humidity + "%";
-            }
-        }
+                let timeFiveUTC = new Date(response.dt * 1000);
+                dateEl.textContent = timeFiveUTC.toLocaleDateString("en-US");
+                cardTextTemp.innerHTML = "Temperature: " + response.main.temp;
+                cardTextHumidity.innerHTML = "Humidity: " + response.main.humidity + "%";
+        }}
+        )
     }
 })
+            
+        
+//         var display5Day = function(weather){
+//             for (var i = 1; i < 6; i++) {
+//                 let dateEl = document.querySelector("#date-" + i);
+//                 dateEl.textContent = moment().add(i, 'days').format('M/D/YYYY');
+//                 cardTextTemp.innerHTML = "Temperature: " + i, forecast.daily[i].temp.day;
+//                 cardTextHumidity.innerHTML = "Humidity: " + i, forcast.daily[i].humidity + "%";
+//             }
+//         }
+//     }
+// })
